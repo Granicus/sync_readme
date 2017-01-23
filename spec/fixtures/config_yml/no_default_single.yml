@@ -1,0 +1,6 @@
+test:
+  url: https://confluence.test.com
+  page_id: 12345
+  filename: README.md
+  username: boo
+  password: password

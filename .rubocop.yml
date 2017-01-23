@@ -1,0 +1,69 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'Vagrantfile'
+    - 'vendor/**/*'
+Style/SingleLineBlockParams:
+  Enabled: false
+Rails/TimeZone:
+  Enabled: false
+Rails/Date:
+  Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Rails/Output:
+  Enabled: false
+Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+Style/CommentAnnotation:
+  Enabled: false
+Style/FileName:
+  Enabled: false
+Style/Semicolon:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/PredicateName:
+  Enabled: false
+Style/EachWithObject:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Style/RaiseArgs:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Style/AccessorMethodName:
+  Enabled: false
+Style/SignalException:
+  Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Lint/AssignmentInCondition:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
