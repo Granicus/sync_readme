@@ -113,6 +113,10 @@ describe SyncReadme::Config do
     context 'single entry' do
       let(:file) { 'spec/fixtures/config_yml/one_entry.yml' }
       it_behaves_like 'a config file'
+
+      it 'strip title is false if not set' do
+        expect(config.strip_title?).to be_falsey
+      end
     end
 
     context 'multiple entries' do
@@ -122,11 +126,19 @@ describe SyncReadme::Config do
       it 'returns the expected notice' do
         expect(config.notice).to eq('this file is syncd')
       end
+
+      it 'strip title is false when set' do
+        expect(config.strip_title?).to be_falsey
+      end
     end
 
     context 'single entry, no default' do
       let(:file) { 'spec/fixtures/config_yml/no_default_single.yml' }
       it_behaves_like 'a config file'
+
+      it 'strip title is true when set' do
+        expect(config.strip_title?).to be_truthy
+      end
     end
 
     context 'multiple entries, no default' do

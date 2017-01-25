@@ -30,7 +30,7 @@ describe SyncReadme::ConfluenceSync do
 
   describe "#updated_page_params" do
     it 'keeps the existing title' do
-      expect(subject.updated_page_params(page, 'foo')[:title]).to eq('Sync Readme (auto sync)')
+      expect(subject.updated_page_params(page, 'foo')[:title]).to eq('Title')
     end
     it 'uses the new content' do
       expect(subject.updated_page_params(page, 'foo')[:body][:storage][:value]).to eq('foo')

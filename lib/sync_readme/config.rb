@@ -41,6 +41,10 @@ module SyncReadme
       ENV['CONFLUENCE_PASSWORD'] || @raw_config['password']
     end
 
+    def strip_title?
+      @raw_config['strip_title'].nil? ? false : @raw_config['strip_title']
+    end
+
     def page_id
       @raw_config['page_id']
     end

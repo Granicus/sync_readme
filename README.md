@@ -21,10 +21,16 @@ Or install it yourself as:
 Then set up a .sync_readme.yml file
 
 ``` yaml
-default:
-  url: http://confluence.url.here
-  page_id: 123456
-  filename: Readme.md
+default: readme                     # optional if you only have one profile
+
+readme:
+  url: http://confluence.url.here   # required
+  page_id: 123456                   # required
+  filename: Readme.md               # required
+  username: foo                     # optional, generally better as an environment variable
+  password: bar                     # optional, generally better as an environment variable
+  notice: this file is sync'd!      # optional, adds the notice (as html) to the top of the confluance docs
+  strip_title: false                # optional, defaults false, strips the first h1 (#) tag from the file
 ```
 
 You'll also need to set environement variables with credentials to update the page in question:

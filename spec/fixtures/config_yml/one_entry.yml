@@ -6,3 +6,4 @@ test:
   filename: README.md
   username: boo
   password: password
+  strip_title: false
