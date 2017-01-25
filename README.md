@@ -21,7 +21,7 @@ Or install it yourself as:
 Then set up a .sync_readme.yml file
 
 ``` yaml
-default: readme                     # optional if you only have one profile
+default: readme                     # optional if not set, default runs all configurations
 
 readme:
   url: http://confluence.url.here   # required

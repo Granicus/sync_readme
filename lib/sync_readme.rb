@@ -18,17 +18,16 @@ module SyncReadme
       end
     end.parse!(args)
 
-    if options[:all]
+    default_profile = SyncReadme::Config.default
+
+    if options[:all] || (args.empty? && default_profile.nil?)
       SyncReadme::Config.profiles.each do |profile|
         SyncReadme.perform(profile)
       end
+    elsif args.empty?
+      SyncReadme.perform(default_profile)
     else
-      if args.empty?
-        default_profile = SyncReadme::Config.default
-        SyncReadme.perform(default_profile)
-      else
-        SyncReadme.perform(args.last)
-      end
+      SyncReadme.perform(args.last)
     end
   end
 

@@ -36,7 +36,7 @@ describe SyncReadme::Config do
     context '#default' do
       it 'raises error if config has no default and more than one entry' do
         file = 'spec/fixtures/config_yml/no_default_multiple.yml'
-        expect { SyncReadme::Config.default(file) }.to raise_error(SyncReadme::Config::DEFAULT_NOT_FOUND_ERROR)
+        expect(SyncReadme::Config.default(file)).to be_nil
       end
       it 'returns the only configured option' do
         file = 'spec/fixtures/config_yml/no_default_single.yml'

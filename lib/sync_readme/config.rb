@@ -3,7 +3,6 @@ require 'yaml'
 module SyncReadme
   class Config
     DEFAULT_CONFIG_FILE = File.join(Dir.pwd, '.sync_readme.yml')
-    DEFAULT_NOT_FOUND_ERROR = 'default not configured, add "default: [your default here]" to your config'.freeze
     NO_CONFIGURATION_ERROR = "this profile has not been configured, please add it to #{DEFAULT_CONFIG_FILE}".freeze
 
     def self.profiles(config_file = DEFAULT_CONFIG_FILE)
@@ -15,7 +14,7 @@ module SyncReadme
       unless default
         profiles = SyncReadme::Config.profiles(config_file)
         return profiles[0] unless profiles.empty? || profiles[1]
-        raise DEFAULT_NOT_FOUND_ERROR
+        raise NO_CONFIGURATION_ERROR if profiles.empty?
       end
       default
     end
