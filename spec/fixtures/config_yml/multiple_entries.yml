@@ -6,6 +6,7 @@ test:
   filename: README.md
   username: boo
   password: password
+  notice: this file is syncd
 
 test2:
   url: https://confluence.test.com

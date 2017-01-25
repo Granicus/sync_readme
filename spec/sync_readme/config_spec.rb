@@ -118,6 +118,10 @@ describe SyncReadme::Config do
     context 'multiple entries' do
       let(:file) { 'spec/fixtures/config_yml/multiple_entries.yml' }
       it_behaves_like 'a config file'
+
+      it 'returns the expected notice' do
+        expect(config.notice).to eq('this file is syncd')
+      end
     end
 
     context 'single entry, no default' do

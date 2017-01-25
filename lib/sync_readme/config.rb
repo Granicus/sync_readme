@@ -33,6 +33,10 @@ module SyncReadme
       ENV['CONFLUENCE_USERNAME'] || @raw_config['username']
     end
 
+    def notice
+      @raw_config['notice']
+    end
+
     def password
       ENV['CONFLUENCE_PASSWORD'] || @raw_config['password']
     end

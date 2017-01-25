@@ -1,7 +1,5 @@
 # SyncReadme
 
-#### Notice: This file is automatically sync'd with a git repo's readme.
-
 sync_readme is a gem designed to help you synchronize a readme between a repository and a confluence wiki page. The idea is that on merge to master, you can run the sync to take docs FROM the readme and put them in the confluence page.
 
 ## Installation
