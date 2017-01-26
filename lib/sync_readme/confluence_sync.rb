@@ -24,7 +24,7 @@ module SyncReadme
     end
 
     def update(params)
-      response = @client.put do |request|
+      @client.put do |request|
         request.url "/rest/api/content/#{@page_id}"
         request.headers['Content-Type'] = 'application/json'
         request.body = params.to_json

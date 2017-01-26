@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SyncReadme::Reader do
-  let(:options){ {filename: nil, notice: nil, strip_title?: false}}
+  let(:options) { { filename: nil, notice: nil, strip_title?: false } }
   context '#html' do
     it 'returns valid html for h1' do
       options[:strip_title?] = false
@@ -28,7 +28,7 @@ describe SyncReadme::Reader do
       reader = SyncReadme::Reader.new(config)
       expect(reader.html).to eq("<pre><code>CODE\nNew line of cod\n</code></pre>\n")
     end
-    it 'injects a notice into the file if specified in the confg'  do
+    it 'injects a notice into the file if specified in the confg' do
       options['filename'] = 'spec/fixtures/markdown/h3.md'
       options['notice'] = 'this file is syncd'
       config = instance_double('SyncReadme::Config', options)

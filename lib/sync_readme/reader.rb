@@ -10,15 +10,11 @@ module SyncReadme
 
     def html
       markdown = @file_contents
-      if @strip_title
-        markdown.sub!(/# .*\n/, '')
-      end
+      markdown.sub!(/# .*\n/, '') if @strip_title
       renderer = Redcarpet::Render::HTML.new(with_toc_data: true)
       converter = Redcarpet::Markdown.new(renderer, fenced_code_blocks: true)
       value = converter.render(@file_contents)
-      if @notice
-        value = "#{@notice}#{value}"
-      end
+      value = "#{@notice}#{value}" if @notice
       value
     end
   end
