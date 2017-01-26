@@ -1,4 +1,4 @@
-require 'redcarpet'
+require 'kramdown'
 
 module SyncReadme
   class Reader
@@ -11,9 +11,7 @@ module SyncReadme
     def html
       markdown = @file_contents
       markdown.sub!(/# .*\n/, '') if @strip_title
-      renderer = Redcarpet::Render::HTML.new(with_toc_data: true)
-      converter = Redcarpet::Markdown.new(renderer, fenced_code_blocks: true)
-      value = converter.render(@file_contents)
+      value = Kramdown::Document.new(markdown, input: 'GFM').to_html
       value = "#{@notice}#{value}" if @notice
       value
     end
