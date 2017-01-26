@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SyncReadme::Reader do
-  let(:options) { { filename: nil, notice: nil, strip_title?: false, syntax_highlighting?: true} }
+  let(:options) { { filename: nil, notice: nil, strip_title?: false, syntax_highlighting?: true } }
   context '#html' do
     it 'returns valid html for h1' do
       options[:strip_title?] = false
