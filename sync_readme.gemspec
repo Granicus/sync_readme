@@ -9,10 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Alex Ives']
   spec.email         = ['alex.ives@govdelivery.com']
 
-  spec.summary       = 'Syncs a readme with confluence'
-  spec.description   = 'Converts the readme.md file in the base of a repo and syncs it with the confluence page'
-  spec.homepage      = 'http://dev-scm.office.gdi/development/sync_readme'
-  spec.license       = 'MIT'
+  spec.summary       = 'Syncs markdown files with confluence'
+  spec.description   = 'Converts markdown files and synchronizes them with confluence pages'
+  spec.homepage      = 'https://github.com/govdelivery/sync_readme'
+  spec.license       = 'BSD-3-Clause'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
