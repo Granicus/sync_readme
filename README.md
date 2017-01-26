@@ -31,6 +31,7 @@ readme:
   password: bar                     # optional, generally better as an environment variable
   notice: this file is sync'd!      # optional, adds the notice (as html) to the top of the confluance docs
   strip_title: false                # optional, defaults false, strips the first h1 (#) tag from the file
+  syntax_highlighting: true         # optional, defaults true, uses coderay sytax highlighting on code blocks
 ```
 
 You'll also need to set environement variables with credentials to update the page in question:

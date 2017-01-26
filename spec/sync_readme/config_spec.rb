@@ -117,6 +117,10 @@ describe SyncReadme::Config do
       it 'strip title is false if not set' do
         expect(config.strip_title?).to be_falsey
       end
+
+      it 'syntax_highlighting is false when set' do
+        expect(config.syntax_highlighting?).to be_falsey
+      end
     end
 
     context 'multiple entries' do
@@ -130,6 +134,10 @@ describe SyncReadme::Config do
       it 'strip title is false when set' do
         expect(config.strip_title?).to be_falsey
       end
+
+      it 'syntax_highlighting is true when not set' do
+        expect(config.syntax_highlighting?).to be_truthy
+      end
     end
 
     context 'single entry, no default' do
@@ -138,6 +146,10 @@ describe SyncReadme::Config do
 
       it 'strip title is true when set' do
         expect(config.strip_title?).to be_truthy
+      end
+
+      it 'syntax_highlighting is true when set' do
+        expect(config.syntax_highlighting?).to be_truthy
       end
     end
 

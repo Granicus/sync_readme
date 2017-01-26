@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SyncReadme::Reader do
-  let(:options) { { filename: nil, notice: nil, strip_title?: false } }
+  let(:options) { { filename: nil, notice: nil, strip_title?: false, syntax_highlighting?: true} }
   context '#html' do
     it 'returns valid html for h1' do
       options[:strip_title?] = false
@@ -41,6 +41,14 @@ describe SyncReadme::Reader do
       config = instance_double('SyncReadme::Config', options)
       reader = SyncReadme::Reader.new(config)
       expect(reader.html).to eq("<h3 id=\"halp\">Halp</h3>\n")
+    end
+    it 'highlights ruby syntax' do
+      options[:strip_title?] = true
+      options['filename'] = 'spec/fixtures/markdown/ruby_code.md'
+      config = instance_double('SyncReadme::Config', options)
+      reader = SyncReadme::Reader.new(config)
+      expect(reader.html).to include('<td class="code"><pre><span style="color:#036;font-weight:bold">Foo</span>.bar')
+      expect(reader.html).to include('<td class="line-numbers"><pre><a href="#n1" name="n1">1</a>')
     end
   end
 end
