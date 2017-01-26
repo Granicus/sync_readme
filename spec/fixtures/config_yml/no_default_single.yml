@@ -5,3 +5,4 @@ test:
   username: boo
   password: password
   strip_title: true
+  syntax_highlighting: true

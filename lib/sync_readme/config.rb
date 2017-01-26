@@ -40,16 +40,20 @@ module SyncReadme
       ENV['CONFLUENCE_PASSWORD'] || @raw_config['password']
     end
 
-    def strip_title?
-      @raw_config['strip_title'].nil? ? false : @raw_config['strip_title']
-    end
-
     def page_id
       @raw_config['page_id']
     end
 
     def filename
       @raw_config['filename']
+    end
+
+    def strip_title?
+      @raw_config['strip_title'].nil? ? false : @raw_config['strip_title']
+    end
+
+    def syntax_highlighting?
+      @raw_config['syntax_highlighting'].nil? ? true : @raw_config['syntax_highlighting']
     end
   end
 end

@@ -7,3 +7,4 @@ test:
   username: boo
   password: password
   strip_title: false
+  syntax_highlighting: false
