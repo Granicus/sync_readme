@@ -34,7 +34,7 @@ readme:
   syntax_highlighting: true         # optional, defaults true, uses coderay sytax highlighting on code blocks
 ```
 
-You'll also need to set environement variables with credentials to update the page in question:
+You'll also need to set environment variables with credentials to update the page in question:
 
 ```
 CONFLUENCE_USERNAME=jsmith
@@ -49,7 +49,7 @@ sync_readme [configuration]
 ## Adding to Gitlab-CI
 
 1. Create a confluence user specifically to sync with
-2. If you haven't already, create the pages you want to sync to on confluence and get their ids.
+2. If you haven't already, create the pages you want to sync to on confluence and get their IDs.
 3. Create your `.sync_readme.yml` file like the one above (or see the example)
 4. Add `gem 'sync_readme'` to your apps gemfile
 5. Set `CONFLUENCE_USERNAME` and `CONFLUENCE_PASSWORD` as CI Variables. 
@@ -74,7 +74,7 @@ Set up a copy of ruby 2.3.1 (We suggest rbenv)
 
 ## Contributing
 
-Contributions are welcome as long as they contain tests for the behaviours added or changed.
+Contributions are welcome as long as they contain tests for the behaviors added or changed.
 
 ## License
 
