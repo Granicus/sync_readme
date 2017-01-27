@@ -1,0 +1,98 @@
+---
+id: '12345'
+type: page
+title: Title
+version:
+  by:
+    type: known
+    username: jsmith
+    displayName: John Smith
+    userKey: 8129831aadf192a1238cc123412
+  when: '2017-01-23T23:20:10.000+0000'
+  message: ''
+  number: 16
+  minorEdit: false
+body:
+  view:
+    value: |-
+      <h1 id="SyncReadme(autosync)-SyncReadme">SyncReadme</h1>
+
+      <h4 id="SyncReadme(autosync)-Notice:Thisfileisautomaticallysync’dwithagitrepo’sreadme.">Notice: This file is automatically sync’d with a git repo’s readme.</h4>
+
+      <p>sync_readme is a gem designed to help you synchronize a readme between a repository and a confluence wiki page. The idea is that on merge to master, you can run the sync to take docs FROM the readme and put them in the confluence page.</p>
+
+      <h2 id="SyncReadme(autosync)-Installation">Installation</h2>
+
+      <p>Add this line to your application’s Gemfile:</p>
+
+      <p><code>ruby
+      gem 'sync_readme'
+      </code></p>
+
+      <p>And then execute:</p>
+
+      <pre><code>$ bundle
+      </code></pre>
+
+      <p>Or install it yourself as:</p>
+
+      <pre><code>$ gem install sync_readme
+      </code></pre>
+
+      <p>Then set up a .sync_readme.yml file</p>
+
+      <p><code>
+      default:
+        url: http://confluence.url.here
+        page_id: 12345
+        file: Readme.md
+      </code></p>
+
+      <p>You’ll also need to set environement variables with credentials to update the page in question:</p>
+
+      <p><code>
+      CONFLUENCE_USERNAME=jsmith
+      CONFLUENCE_PASSWORD=$UPER $ECURE PA$$WORD
+      </code></p>
+
+      <h2 id="SyncReadme(autosync)-Usage">Usage</h2>
+      <p><code>
+      sync_readme [configuration]
+      </code></p>
+
+      <h2 id="SyncReadme(autosync)-Development">Development</h2>
+
+      <p>Set up a copy of ruby 2.3.1 (We suggest rbenv)</p>
+
+      <p><code>bundle install</code></p>
+
+      <h2 id="SyncReadme(autosync)-RunningTests">Running Tests</h2>
+
+      <p>There aren’t any right now</p>
+
+      <h2 id="SyncReadme(autosync)-License">License</h2>
+
+      <p>The gem is available as open source under the terms of the <a href="http://opensource.org/licenses/MIT" class="external-link" rel="nofollow">MIT License</a>.</p>
+    representation: view
+    _expandable:
+      content: "/rest/api/content/12345"
+  _expandable:
+    editor: ''
+    export_view: ''
+    anonymous_export_view: ''
+    storage: ''
+_links:
+  webui: "/pages/viewpage.action?pageId=12345"
+  tinyui: "/x/23asdlf"
+  collection: "/rest/api/content"
+  base: https://confluence.test.com
+  context: ''
+  self: https://confluence.test.com/rest/api/content/12345
+_expandable:
+  history: "/rest/api/content/12345/history"
+  container: ''
+  ancestors: ''
+  children: "/rest/api/content/12345/child"
+  descendants: "/rest/api/content/12345/descendant"
+  space: "/rest/api/space/~aives"
+  metadata: ''

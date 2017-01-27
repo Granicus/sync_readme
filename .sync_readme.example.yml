@@ -1,0 +1,7 @@
+default: readme
+
+readme:
+  url: https://confluence.example.com
+  page_id: 123456
+  filename: Readme.md
+  notice: <h4>Notice - This file is sync'd with its git repo. Any changes will be lost.</h4>

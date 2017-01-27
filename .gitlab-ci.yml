@@ -1,0 +1,29 @@
+stages:
+  - Test
+
+cache:
+  key: bundle_files
+  paths:
+    - .bundle/config
+    - .bundle/ruby/2.3.0/bin
+    - .bundle/ruby/2.3.0/build_info
+    - .bundle/ruby/2.3.0/bundler
+    - .bundle/ruby/2.3.0/doc
+    - .bundle/ruby/2.3.0/extensions
+    - .bundle/ruby/2.3.0/gems
+    - .bundle/ruby/2.3.0/specifications
+
+before_script:
+  - rbenv install -s
+  - bundle -v || gem install bundler
+  - bundle install --quiet --path .bundle
+
+RuboCop:
+  stage: Test
+  script:
+    - bundle exec rubocop
+
+Unit:
+  stage: Test
+  script:
+    - bundle exec rspec

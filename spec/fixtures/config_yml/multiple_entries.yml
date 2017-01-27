@@ -1,0 +1,16 @@
+default: test
+
+test:
+  url: https://confluence.test.com
+  page_id: 12345
+  filename: README.md
+  username: boo
+  password: password
+  notice: this file is syncd
+
+test2:
+  url: https://confluence.test.com
+  page_id: 123456
+  filename: README.md
+  username: boo
+  password: password

@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'sync_readme'
+SyncReadme.invoke(ARGV)
