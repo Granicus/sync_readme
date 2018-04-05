@@ -4,6 +4,7 @@ require 'sync_readme/reader'
 require 'sync_readme/version'
 require 'optparse'
 require 'dotenv'
+require 'highline/import'
 
 Dotenv.load
 
@@ -11,12 +12,25 @@ module SyncReadme
   def self.invoke(args)
     options = {}
     OptionParser.new do |opts|
-      opts.banner = "Usage: sync_readme [options] [profile]"
+      opts.banner = 'Usage: sync_readme [options] [profile]'
 
-      opts.on("-a", "--all", "Run verbosely") do
+      opts.on('-u', '--user=username', String, 'Confluence username') do |user|
+        ENV['CONFLUENCE_USERNAME'] = user
+        ENV['CONFLUENCE_PASSWORD'] = ask("Password for #{user}: ") { |q| q.echo = false }
+      end
+
+      opts.on('-a', '--all', 'Run all configured syncronizations') do
         options[:all] = true
       end
+
+      opts.on_tail('-h', '--help', 'Show help') do
+        puts opts
+        exit
+      end
     end.parse!(args)
+
+    ENV['CONFLUENCE_USERNAME'] ||= ask("Confluence username: ")
+    ENV['CONFLUENCE_PASSWORD'] ||= ask("Password for #{ENV['CONFLUENCE_USERNAME']}: ") { |q| q.echo = false }
 
     default_profile = SyncReadme::Config.default
 
