@@ -31,15 +31,17 @@ readme:
   password: bar                     # optional, can be prompted for or put in an environment variable
   notice: this file is sync'd!      # optional, adds the notice (as html) to the top of the confluance docs
   strip_title: false                # optional, defaults false, strips the first h1 (#) tag from the file
-  syntax_highlighting: true         # optional, defaults true, uses coderay sytax highlighting on code blocks
+  syntax_highlighting: true         # optional, defaults true, uses coderay syntax highlighting on code blocks
 ```
 
-You can also set the following in your environment (ex: continuous integration) to store credentials
+You can also set the following in your environment (ex: continuous integration) to store credentials:
 
 ```
 CONFLUENCE_USERNAME=jsmith
 CONFLUENCE_PASSWORD=$UPER $ECURE PA$$WORD
 ```
+
+The Atlassian Cloud supports [API tokens](https://confluence.atlassian.com/cloud/api-tokens-938839638.html), which can be used for `CONFLUENCE_PASSWORD`
 
 If credentials are not stored anywhere, they are prompted for at run time.
 
