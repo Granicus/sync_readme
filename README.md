@@ -27,42 +27,48 @@ readme:
   url: http://confluence.url.here   # required
   page_id: 123456                   # required
   filename: Readme.md               # required
-  username: foo                     # optional, generally better as an environment variable
-  password: bar                     # optional, generally better as an environment variable
+  username: foo                     # optional, can be prompted for or put in an environment variable
+  password: bar                     # optional, can be prompted for or put in an environment variable
   notice: this file is sync'd!      # optional, adds the notice (as html) to the top of the confluance docs
   strip_title: false                # optional, defaults false, strips the first h1 (#) tag from the file
   syntax_highlighting: true         # optional, defaults true, uses coderay syntax highlighting on code blocks
 ```
 
-You'll also need to set environment variables with credentials to update the page in question:
-
-The Atlassian Cloud supports [API tokens](https://confluence.atlassian.com/cloud/api-tokens-938839638.html), which can be used for `CONFLUENCE_PASSWORD`
+You can also set the following in your environment (ex: continuous integration) to store credentials:
 
 ```
 CONFLUENCE_USERNAME=jsmith
 CONFLUENCE_PASSWORD=$UPER $ECURE PA$$WORD
 ```
 
+The Atlassian Cloud supports [API tokens](https://confluence.atlassian.com/cloud/api-tokens-938839638.html), which can be used for `CONFLUENCE_PASSWORD`
+
+If credentials are not stored anywhere, they are prompted for at run time.
+
 ## Usage
 ```
-sync_readme [configuration]
+sync_readme [options] [profile]
+    -u, --user=username              Confluence username
+    -a, --all                        Run all configured syncronizations
+    -h, --help                       Show help
 ```
 
-## Adding to Gitlab-CI
+## Using in Gitlab-CI
 
 1. Create a confluence user specifically to sync with
 2. If you haven't already, create the pages you want to sync to on confluence and get their IDs.
 3. Create your `.sync_readme.yml` file like the one above (or see the example)
 4. Add `gem 'sync_readme'` to your apps gemfile
-5. Set `CONFLUENCE_USERNAME` and `CONFLUENCE_PASSWORD` as CI Variables.
-6. Add the following job to your .gitlab-ci.yml
-   ``` yaml
-   Sync To Confluence:
-     stage: update_docs                # Replace that with the stage you want this to run
-     only: master                      # Only run on master branch probably after you deploy
-     script:
-       - bundle exec sync_readme --all # Alternately just the profile you want to run
-    ```
+5. Set `CONFLUENCE_USERNAME` and `CONFLUENCE_PASSWORD` as CI Variables. 
+6. Add the following job to your .gitlab-ci.yml 
+
+```yaml
+Sync To Confluence:
+  stage: update_docs                # Replace that with the stage you want this to run
+  only: master                      # Only run on master branch probably after you deploy
+  script:
+    - bundle exec sync_readme --all # Alternately just the profile you want to run
+```
 
 ## Development
 

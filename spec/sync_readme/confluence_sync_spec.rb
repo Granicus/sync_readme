@@ -21,7 +21,7 @@ describe SyncReadme::ConfluenceSync do
 
   describe "#get_page" do
     it 'calls get on the client' do
-      expect_any_instance_of(Faraday::Connection).to receive(:get).with("/rest/api/content/12345", expand: 'body.view,version').and_return(response)
+      expect_any_instance_of(Faraday::Connection).to receive(:get).with("rest/api/content/12345", expand: 'body.view,version').and_return(response)
       subject.get_page
     end
   end
