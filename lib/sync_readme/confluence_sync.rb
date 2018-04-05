@@ -19,13 +19,13 @@ module SyncReadme
     end
 
     def get_page
-      response = @client.get("/rest/api/content/#{@page_id}", expand: 'body.view,version')
+      response = @client.get("rest/api/content/#{@page_id}", expand: 'body.view,version')
       JSON.parse(response.body)
     end
 
     def update(params)
       @client.put do |request|
-        request.url "/rest/api/content/#{@page_id}"
+        request.url "rest/api/content/#{@page_id}"
         request.headers['Content-Type'] = 'application/json'
         request.body = params.to_json
       end
