@@ -1,3 +1,4 @@
+require 'sync_readme/errors'
 require 'sync_readme/config'
 require 'sync_readme/confluence_sync'
 require 'sync_readme/reader'
@@ -29,6 +30,10 @@ module SyncReadme
     else
       SyncReadme.perform(args.last)
     end
+
+  rescue SyncReadme::Error => sre
+    STDERR.puts sre.message
+    exit 1
   end
 
   def self.perform(profile)
