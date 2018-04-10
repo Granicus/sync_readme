@@ -32,6 +32,7 @@ readme:
   notice: this file is sync'd!      # optional, adds the notice (as html) to the top of the confluance docs
   strip_title: false                # optional, defaults false, strips the first h1 (#) tag from the file
   syntax_highlighting: true         # optional, defaults true, uses coderay syntax highlighting on code blocks
+  toc: true                         # optional, defaults false, can also be a hash of toc macro params
 ```
 
 You can also set the following in your environment (ex: continuous integration) to store credentials:

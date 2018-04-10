@@ -36,6 +36,10 @@ module SyncReadme
       @raw_config['notice']
     end
 
+    def toc
+      @raw_config['toc']
+    end
+
     def password
       ENV['CONFLUENCE_PASSWORD'] || @raw_config['password']
     end

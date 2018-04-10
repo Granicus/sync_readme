@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SyncReadme::Reader do
-  let(:options) { { filename: nil, notice: nil, strip_title?: false, syntax_highlighting?: true } }
+  let(:options) { { toc: nil, filename: nil, notice: nil, strip_title?: false, syntax_highlighting?: true } }
   context '#html' do
     it 'returns valid html for h1' do
       options[:strip_title?] = false
@@ -33,7 +33,26 @@ describe SyncReadme::Reader do
       options['notice'] = 'this file is syncd'
       config = instance_double('SyncReadme::Config', options)
       reader = SyncReadme::Reader.new(config)
-      expect(reader.html).to eq("this file is syncd<h3 id=\"hello\">Hello</h3>\n")
+      expect(reader.html).to eq("<p>this file is syncd</p>\n<h3 id=\"hello\">Hello</h3>\n")
+    end
+    it 'injects a ToC into the file if specified in the confg' do
+      options['filename'] = 'spec/fixtures/markdown/h3.md'
+      options['toc'] = true
+      config = instance_double('SyncReadme::Config', options)
+      reader = SyncReadme::Reader.new(config)
+      html = reader.html
+      expect(html.scan(/(?=#{'ac:parameter'})/).count).to eq 20
+      expect(html.scan(/(?=#{'ac:structured-macro'})/).count).to eq 2
+    end
+    it 'injects a ToC into the file if specified in the confg' do
+      options['filename'] = 'spec/fixtures/markdown/h3.md'
+      options['toc'] = {'style' => 'circle'}
+      config = instance_double('SyncReadme::Config', options)
+      reader = SyncReadme::Reader.new(config)
+      html = reader.html
+      expect(html.scan(/(?=#{'ac:parameter'})/).count).to eq 20
+      expect(html.scan(/(?=#{'<ac:parameter ac:name="style">circle</ac:parameter>'})/).count).to eq 1
+      expect(html.scan(/(?=#{'ac:structured-macro'})/).count).to eq 2
     end
     it 'strips out a title' do
       options[:strip_title?] = true
