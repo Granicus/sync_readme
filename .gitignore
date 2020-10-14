@@ -10,3 +10,5 @@
 .env
 .sync_readme.yml
 sync_readme*.gem
+/vendor/
+/.idea/
