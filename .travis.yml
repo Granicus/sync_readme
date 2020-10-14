@@ -1,6 +1,0 @@
-language: ruby
-rvm:
- - 2.6.3
-env:
-  - CONFLUENCE_USERNAME=fake CONFLUENCE_PASSWORD=fake
-script: "bundle exec rspec"
